@@ -1,35 +1,37 @@
 <template>
   <div>
-    <div class="container">
-      <ul>
-        <li class="red" @click="panelClicked($event, 'red.mp3')" ref="red"></li>
-        <li
-          class="blue"
-          @click="panelClicked($event, 'blue.mp3')"
-          ref="blue"
-        ></li>
-        <li
-          class="yellow"
-          @click="panelClicked($event, 'yellow.mp3')"
-          ref="yellow"
-        ></li>
-        <li
-          class="green"
-          @click="panelClicked($event, 'green.mp3')"
-          ref="green"
-        ></li>
-      </ul>
+    <h1>Simon the game</h1>
+    <div class="panels">
+      <div class="red" @click="panelClicked($event, 'red.mp3')" ref="red"></div>
+      <div
+        class="blue"
+        @click="panelClicked($event, 'blue.mp3')"
+        ref="blue"
+      ></div>
+      <div
+        class="yellow"
+        @click="panelClicked($event, 'yellow.mp3')"
+        ref="yellow"
+      ></div>
+      <div
+        class="green"
+        @click="panelClicked($event, 'green.mp3')"
+        ref="green"
+      ></div>
     </div>
     <div class="buttons">
       round:{{ sequence.length }}
       <div>
-        <button :disabled="statrted" @click="start(1500)">легкий</button>
+        <button :disabled="statrted" @click="start(1500)">Легкий</button>
       </div>
       <div>
-        <button :disabled="statrted" @click="start(1000)">нормальный</button>
+        <button :disabled="statrted" @click="start(1000)">Нормальный</button>
       </div>
       <div>
-        <button :disabled="statrted" @click="start(400)">сложный</button>
+        <button :disabled="statrted" @click="start(400)">Сложный</button>
+      </div>
+      <div>
+        <button :disabled="!statrted" @click="stop">Стоп</button>
       </div>
     </div>
   </div>
@@ -52,6 +54,11 @@ export default {
     },
   },
   methods: {
+    stop() {
+      this.sequence = [];
+      this.canClick = false;
+      this.statrted = false;
+    },
     change() {
       console.log("canClick");
     },
@@ -136,30 +143,34 @@ export default {
 </script>
 
 <style>
-.buttons {
-  margin-left: 100px;
+body {
+  background-color: rgb(167, 163, 163);
 }
-.container {
-  margin-left: 30vw;
-  margin-top: 10vw;
+.buttons {
+  text-align: center;
+  position: relative;
+  top: 300px;
+}
+button {
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+  background-color: rgb(166, 198, 240);
+  border: 2px solid rgb(88, 88, 88);
+  border-radius: 8px;
 }
 h1 {
   margin: 1em 0 2em;
   text-align: center;
 }
+.panels {
+  display: flex;
+  justify-content: center;
+}
 .on-click:active {
   opacity: 1;
 }
 
-ul {
-  list-style: none;
-}
-
-ul,
-li {
-  padding: 0;
-  margin: 0;
-}
 .active {
   opacity: 1 !important;
 }

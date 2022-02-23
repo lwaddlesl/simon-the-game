@@ -9,6 +9,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:lwaddlesl/simon-the-game.git main:gh-pages  
+git push -f git@github.com:lwaddlesl/simon-the-game.git master:gh-pages  
 
 cd -
