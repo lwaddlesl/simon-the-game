@@ -1,5 +1,7 @@
 # simon-the-game
 
+Demo: https://lwaddlesl.github.io/simon-the-game/
+
 ## Project setup
 ```
 npm install
