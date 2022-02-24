@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <SimonTheGame />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SimonTheGame from "./components/SimonTheGame.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    SimonTheGame,
+  },
+};
 </script>
 
 <style>
